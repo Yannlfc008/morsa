@@ -20,7 +20,6 @@ from pathlib import Path
 @click.option('--num_pages',default=None, type=int, help='Límite de páginas donde buscar')
 @click.option('--domain',default=[],multiple=True,help='Dominio por el que filtrar al coger los activos')
 def main(output_file, assets_file, dorks_file,num_pages, domain):
-    #Log information
     logger = logging.getLogger("morsa")
     logging.basicConfig(filename='morsa_debug.log', filemode='w', format='%(asctime)s|%(levelname)s|%(name)s|%(message)s')
     handler  = logging.StreamHandler()
