@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: morsa
+Version: 0.2.1
+Summary: crawler dorks
+Home-page: qwe
+Author: qwe
+Author-email: qwe
+License: good luck
+Keywords: Prima Cloud,SDK
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: GLWT(Good Luck With That) Public License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: dev
+
+super long descruiptio

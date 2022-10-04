@@ -1,0 +1,69 @@
+---
+BING:
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: ".pdf"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar excel"
+        dork: ".xlsx"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: ".conf"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: ".php"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: ".aspx"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: "filetype:pdf"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: "allintext:password+filetype:log"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar log files"
+        dork: ".log"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar admin files"
+        dork: "intitle:Admin Login"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar passwrds"
+        dork: "intitle:index of+inurl:ftp+intext:password"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: "allintext:password+filetype:pdf"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: "allintext:password+.pdf"
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: "filetype:sql"
+        id_dork: 1
+
+            

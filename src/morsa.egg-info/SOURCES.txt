@@ -1,0 +1,16 @@
+setup.py
+src/morsa/__init__.py
+src/morsa/__main__.py
+src/morsa/abstract_searcher.py
+src/morsa/bing_searcher.py
+src/morsa/excel_dominio.py
+src/morsa/google_searcher.py
+src/morsa/hash.py
+src/morsa/logg.py
+src/morsa/main.py
+src/morsa/my_yaml.py
+src/morsa.egg-info/PKG-INFO
+src/morsa.egg-info/SOURCES.txt
+src/morsa.egg-info/dependency_links.txt
+src/morsa.egg-info/requires.txt
+src/morsa.egg-info/top_level.txt
