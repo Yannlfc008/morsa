@@ -33,7 +33,6 @@ class BingSearcher(AbstractSearcher):
         while (limit_pages is None) or (limit_pages>0):
             pagina_siguiente=False
             page = self._search_action(URL, headers=headers)
-            self.__logger.debug('Requesting the page: %s',URL)
             all_links = self._parse_urls(page.text)
             for link in all_links:
                 if link.get('class') is not None:
@@ -65,7 +64,6 @@ class BingSearcher(AbstractSearcher):
             if (len(links)==0) or (pagina_siguiente is False):
                 break
         if len(links)==0:
-
             self.__logger.debug("No results found using the dork: "+dork+" and the dominio: "+dominio)
             self.__logger.debug("Checking for limits")
             url = "https://www.bing.com/search?q=perro+filetype:pdf+allintext:password"
@@ -73,9 +71,9 @@ class BingSearcher(AbstractSearcher):
             self.__logger.debug('Requesting the page: %s',url)
             all_links = [link for link in self._parse_urls(page.text) if link.get('class') and 'b_algo' in link.get('class')]
             if len(all_links) == 0:
-                raise Exception("alcanzado limite de busqueda.")
+                raise Exception("Alcanzado limite de busqueda.")
             else:
-                self.__logger.debug(f'Debug results N={len(all_links)}, exqmple={all_links[:2]}')
+                self.__logger.debug(f'Debug results N={len(all_links)}, example={all_links[:2]}')
                 raise Exception()
 
         else:

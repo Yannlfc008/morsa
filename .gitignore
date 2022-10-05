@@ -4,3 +4,5 @@
 *.pdf
 *.pyc
 venv
+*.txt
+*.egg_info

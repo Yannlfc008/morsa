@@ -8,7 +8,7 @@ class AbstractSearcher(ABC):
         self.url = f'https://www.{search_engine}/search?q='
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
-            'Referer': 'https://www.{search_engine}/'
+            'Referer': f'https://www.{search_engine}/'
         }
         
     
