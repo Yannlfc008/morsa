@@ -13,7 +13,7 @@ class BingSearcher(AbstractSearcher):
         self.session = requests.session()
     
     def _search_action(self, url, headers=None):
-        page = self.session.get(url, headers=headers)
+        page = self.session.get(url, headers=headers, verify=False)
         self.__logger.debug('Requesting the page: %s',url)
         return page
 
@@ -68,7 +68,7 @@ class BingSearcher(AbstractSearcher):
 
             self.__logger.debug("No results found using the dork: "+dork+" and the dominio: "+dominio)
             self.__logger.debug("Checking for limits")
-            url = "https://www.bing.com/search?q=perro+filetype:pdf+allintext:password"
+            url = "https://www.bing.com/search?q=perro+filetype:pdf"
             page = self._search_action(url, headers=headers)
             self.__logger.debug('Requesting the page: %s',url)
             all_links = [link for link in self._parse_urls(page.text) if link.get('class') and 'b_algo' in link.get('class')]
