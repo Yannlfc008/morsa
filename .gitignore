@@ -1,3 +1,6 @@
 .vscode
 *.xlsx
 *.log
+*.pdf
+*.pyc
+venv

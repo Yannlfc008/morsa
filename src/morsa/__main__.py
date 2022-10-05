@@ -74,8 +74,9 @@ def main(output_file, assets_file, dorks_file,num_pages, domain):
                     raise Exception(count_number_requests)
             if len(aux_links)>0:
                 for url in aux_links:
-                    if ('.pdf' in url):
+                    if '.pdf' in url:
                         response=requests.get(url)
+                        #Usar temp library python para crear archivs temporales
                         with open('prueba.pdf','wb') as pdf:
                             pdf.write(response.content) 
                         hash_value=getmd5file(PRUEBA_PDF)
