@@ -10,11 +10,21 @@ class BingSearcher(AbstractSearcher):
 
     def __init__(self):
         super().__init__('bing.com')
+        self.session = requests.session()
     
-    def search(self, domain, dork, limit):
-        URL=f'{self.url}{dork}+site:{domain}'
+    def _search_action(self, url, headers=None):
+        page = self.session.get(url, headers=headers)
+        self.__logger.debug('Requesting the page: %s',url)
+        return page
+
+    def _parse_urls(self, html):
+        soup = BeautifulSoup(html, "html.parser")
+        all_links = soup.find_all('li')
+        return all_links
+
+    def search(self, dominio, dork, limit):
+        URL=f'{self.url}{dork}+site:{dominio}'
         headers=self.headers
-        session = requests.session()
         limit_pages=limit
         links= []
         link_pagina_siguiente=[]
@@ -22,11 +32,10 @@ class BingSearcher(AbstractSearcher):
         all_links=None
         while (limit_pages is None) or (limit_pages>0):
             pagina_siguiente=False
-            page = requests.get(URL, headers=headers)
+            page = self._search_action(URL, headers=headers)
             self.__logger.debug('Requesting the page: %s',URL)
-            html=page.text
-            soup = BeautifulSoup(html, "html.parser")
-            for link in soup.find_all('li'):
+            all_links = self._parse_urls(page.text)
+            for link in all_links:
                 if link.get('class') is not None:
                     if ('b_algo' in link.get('class')):
                         a=link.find('a')
@@ -56,8 +65,20 @@ class BingSearcher(AbstractSearcher):
             if (len(links)==0) or (pagina_siguiente is False):
                 break
         if len(links)==0:
-            self.__logger.debug("No results found using the dork: "+dork+" and the domain: "+domain)
+
+            self.__logger.debug("No results found using the dork: "+dork+" and the dominio: "+dominio)
+            self.__logger.debug("Checking for limits")
+            url = "https://www.bing.com/search?q=perro+filetype:pdf+allintext:password"
+            page = self._search_action(url, headers=headers)
+            self.__logger.debug('Requesting the page: %s',url)
+            all_links = [link for link in self._parse_urls(page.text) if link.get('class') and 'b_algo' in link.get('class')]
+            if len(all_links) == 0:
+                raise Exception("alcanzado limite de busqueda.")
+            else:
+                self.__logger.debug(f'Debug results N={len(all_links)}, exqmple={all_links[:2]}')
+                raise Exception()
+
         else:
-            self.__logger.debug("There are "+str(len(links))+" results for the dork: "+dork+" and the domain: "+domain)
+            self.__logger.debug("There are "+str(len(links))+" results for the dork: "+dork+" and the dominio: "+dominio)
 
         return links

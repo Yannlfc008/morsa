@@ -68,7 +68,7 @@ def main(output_file, assets_file, dorks_file,num_pages, domain):
             entidad=dominio['entidad']
             limit=num_pages
             aux_links = my_searcher.search(dominio['activo'],dork,limit)
-            if count_number_requests>600:
+            if count_number_requests>1000:
                 perros_links = my_searcher.search('google.com','perros',1)
                 if len(perros_links)==0:
                     raise Exception(count_number_requests)
