@@ -12,6 +12,7 @@ from morsa.my_yaml import load_yaml
 import click
 import requests
 from pathlib import Path
+import tempfile
 
 @click.command()
 @click.option('--output_file',default=NEW_EXCEL_FILE, help='Archivo donde mostrar los resultados')
@@ -30,6 +31,7 @@ def main(output_file, assets_file, dorks_file,num_pages, domain):
     aux_domain={}
     perros_links=[]
     PRUEBA_PDF = Path(__file__).parents[2] / 'prueba.pdf'
+    headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36'}
     response=None
     count_number_requests=0
     excel_data=read_excel(assets_file)
@@ -75,11 +77,13 @@ def main(output_file, assets_file, dorks_file,num_pages, domain):
             if len(aux_links)>0:
                 for url in aux_links:
                     if '.pdf' in url:
-                        response=requests.get(url)
+                        response=requests.get(url, headers=headers)
                         #Usar temp library python para crear archivs temporales
-                        with open('prueba.pdf','wb') as pdf:
-                            pdf.write(response.content) 
-                        hash_value=getmd5file(PRUEBA_PDF)
+                        with tempfile.TemporaryFile() as pdf:
+                            pdf.write(response.content)
+                            pdf.seek(0)
+                            data=pdf.read() 
+                            hash_value=getmd5file(data)
                         ws['G'+str(i)].value=hash_value
                     ws['A'+str(i)].value=country
                     ws['B'+str(i)].value=entidad

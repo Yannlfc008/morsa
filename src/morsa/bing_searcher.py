@@ -2,6 +2,7 @@ from morsa.abstract_searcher import AbstractSearcher
 from bs4 import BeautifulSoup
 import requests
 import logging
+from morsa.exception_capado import CapadoException
 
 
 class BingSearcher(AbstractSearcher):
@@ -13,7 +14,7 @@ class BingSearcher(AbstractSearcher):
         self.session = requests.session()
     
     def _search_action(self, url, headers=None):
-        page = self.session.get(url, headers=headers, verify=False)
+        page = self.session.get(url, headers=headers)
         self.__logger.debug('Requesting the page: %s',url)
         return page
 
@@ -71,10 +72,9 @@ class BingSearcher(AbstractSearcher):
             self.__logger.debug('Requesting the page: %s',url)
             all_links = [link for link in self._parse_urls(page.text) if link.get('class') and 'b_algo' in link.get('class')]
             if len(all_links) == 0:
-                raise Exception("Alcanzado limite de busqueda.")
+                raise CapadoException("Alcanzado limite de busqueda.")
             else:
                 self.__logger.debug(f'Debug results N={len(all_links)}, example={all_links[:2]}')
-                raise Exception()
 
         else:
             self.__logger.debug("There are "+str(len(links))+" results for the dork: "+dork+" and the dominio: "+dominio)
