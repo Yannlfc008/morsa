@@ -27,10 +27,8 @@ def main(output_file, assets_file, dorks_file,num_pages, domain):
     handler.setFormatter(logging.Formatter("%(asctime)s|%(levelname)s|%(name)s|%(message)s"))
     logger.addHandler(handler)
     logger.setLevel(logging.DEBUG)
-    links={}
     aux_domain={}
     perros_links=[]
-    PRUEBA_PDF = Path(__file__).parents[2] / 'prueba.pdf'
     headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36'}
     response=None
     count_number_requests=0
@@ -64,26 +62,23 @@ def main(output_file, assets_file, dorks_file,num_pages, domain):
         for yml_dork in file_dorks['BING']:
             count_number_requests+=1
             dork=yml_dork['dorks']['dork']
-            id_dork=yml_dork['dorks']['id_dork']
+            #id_dork=yml_dork['dorks']['id_dork']
             riesgo_dork=yml_dork['dorks']['riesgo']
             country=dominio['pais']
             entidad=dominio['entidad']
             limit=num_pages
             aux_links = my_searcher.search(dominio['activo'],dork,limit)
-            if count_number_requests>1000:
-                perros_links = my_searcher.search('google.com','perros',1)
-                if len(perros_links)==0:
-                    raise Exception(count_number_requests)
+            #if count_number_requests>1000:
+                #perros_links = my_searcher.search('google.com','perros',1)
+                #if len(perros_links)==0:
+                    #raise Exception(count_number_requests)
             if len(aux_links)>0:
                 for url in aux_links:
                     if '.pdf' in url:
                         response=requests.get(url, headers=headers)
-                        #Usar temp library python para crear archivs temporales
-                        with tempfile.TemporaryFile() as pdf:
+                        with tempfile.NamedTemporaryFile() as pdf:
                             pdf.write(response.content)
-                            pdf.seek(0)
-                            data=pdf.read() 
-                            hash_value=getmd5file(data)
+                            hash_value=getmd5file(pdf.name)
                         ws['G'+str(i)].value=hash_value
                     ws['A'+str(i)].value=country
                     ws['B'+str(i)].value=entidad

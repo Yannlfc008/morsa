@@ -1,5 +1,4 @@
 from openpyxl import load_workbook
-from wcmatch import fnmatch
 
 def read_excel(asset_file):
     wb = load_workbook(asset_file)

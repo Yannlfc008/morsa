@@ -66,16 +66,16 @@ class BingSearcher(AbstractSearcher):
                 break
         if len(links)==0:
             self.__logger.debug("No results found using the dork: "+dork+" and the dominio: "+dominio)
+            '''
             self.__logger.debug("Checking for limits")
             url = "https://www.bing.com/search?q=perro+filetype:pdf"
             page = self._search_action(url, headers=headers)
-            self.__logger.debug('Requesting the page: %s',url)
             all_links = [link for link in self._parse_urls(page.text) if link.get('class') and 'b_algo' in link.get('class')]
             if len(all_links) == 0:
                 raise CapadoException("Alcanzado limite de busqueda.")
-            else:
-                self.__logger.debug(f'Debug results N={len(all_links)}, example={all_links[:2]}')
-
+            #else:
+                #self.__logger.debug(f'Debug results N={len(all_links)}, example={all_links[:2]}')
+            '''
         else:
             self.__logger.debug("There are "+str(len(links))+" results for the dork: "+dork+" and the dominio: "+dominio)
 

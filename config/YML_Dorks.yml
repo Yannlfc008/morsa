@@ -3,67 +3,426 @@ BING:
     - dorks:
         riesgo: 5
         descripcion: "para sacar pfds"
-        dork: ".pdf"
+        dork: 'intitle:"WordPress > * > Login form" inurl:"wp-login.php"'
         id_dork: 1
     - dorks:
         riesgo: 5
-        descripcion: "para sacar excel"
-        dork: ".xlsx"
+        descripcion: ""
+        dork: 'BEGIN (CERTIFICATE|DSA|RSA) filetype:key'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: ""
+        dork: 'BEGIN (CERTIFICATE|DSA|RSA) filetype:csr'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: ""
+        dork: 'inurl:email filetype:mdb'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: ""
+        dork: 'inurl:backup filetype:mdb'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: ""
+        dork: 'intext:(password | passcode) intext:(username | userid | user) filetype:csv'
         id_dork: 1
     - dorks:
         riesgo: 5
         descripcion: "para sacar pfds"
-        dork: ".conf"
-        id_dork: 1
-    - dorks:
-        riesgo: 5
-        descripcion: "para sacar pfds"
-        dork: ".php"
-        id_dork: 1
-    - dorks:
-        riesgo: 5
-        descripcion: "para sacar pfds"
-        dork: ".aspx"
-        id_dork: 1
-    - dorks:
-        riesgo: 5
-        descripcion: "para sacar pfds"
-        dork: "filetype:pdf"
-        id_dork: 1
-    - dorks:
-        riesgo: 5
-        descripcion: "para sacar pfds"
-        dork: "allintext:password+filetype:log"
+        dork: 'inurl:forum filetype:mdb'
         id_dork: 1
     - dorks:
         riesgo: 5
         descripcion: "para sacar log files"
-        dork: ".log"
+        dork: 'inurl:profiles filetype:mdb'
         id_dork: 1
     - dorks:
         riesgo: 5
         descripcion: "para sacar admin files"
-        dork: "intitle:Admin Login"
+        dork: 'filetype:xls inurl:"email.xls"'
         id_dork: 1
     - dorks:
         riesgo: 5
         descripcion: "para sacar passwrds"
-        dork: "intitle:index of+inurl:ftp+intext:password"
+        dork: 'ext:txt "Final encryption key"'
         id_dork: 1
     - dorks:
         riesgo: 5
         descripcion: "para sacar pfds"
-        dork: "allintext:password+filetype:pdf"
+        dork: 'php-addressbook "This is the addressbook for *" -warning'
         id_dork: 1
     - dorks:
         riesgo: 5
         descripcion: "para sacar pfds"
-        dork: "allintext:password+.pdf"
+        dork: 'allinurl:cdkey.txt'
         id_dork: 1
     - dorks:
         riesgo: 5
         descripcion: "para sacar pfds"
-        dork: "filetype:sql"
+        dork: 'ext:(doc | pdf | xls | txt | ps | rtf | odt | sxw | psw | ppt | pps | xml) (intext:confidential salary | intext:"budget approved") inurl:confidential'
         id_dork: 1
-
-            
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:/cgi-bin/pass.txt'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intext:ViewCVS inurl:Settings.php'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:ini "Bootstrap.php" (pass|passwd|password|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:log inurl:"access.log"+intext:"HTTP/1.1"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:Curriculum Vitale filetype:doc'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: '!Host=*.* intext:enc_UserPassword=* ext:pcf'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'ext:log telnet intext:password'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:mobileconfig intext:password OR intext:pass'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:index of /weekly cpbackup'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:index.of people.lst'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:passlist.txt'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:reg reg +intext:"defaultusername" +intext:"defaultpassword"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:"wvdial.conf" intext:"password"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:netrc password'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:sql ("values * MD5" | "values * password" | "values * encrypt")'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: '!Host=*.* intext:enc_UserPassword=* ext:pcf'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:rapidshare intext:login'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:sql "insert into" (pass|passwd|password)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:index.of master.passwd'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"Index of" pwd.db'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:wp-content/uploads (filetype:xls | filetype:xlsx) password'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: '"END_FILE" inurl:"/password.log"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:xls "username | password"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'index.of.secret'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'index.of.private'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'index.of.secure'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'index.of.protected'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:passlist.txt'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"index.of.personal"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: '+intext:"webalizer" +intext:"Total Usernames" +intext:"Usage Statistics for"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:reg reg +intext:"defaultusername" +intext:"defaultpassword"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:pem intext:private'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:"slapd.conf" intext:"credentials" -manpage -"Manual Page" -man: -sample'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:"slapd.conf" intext:"rootpw" -manpage -"Manual Page" -man: -sample'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'ext:pwd inurl:(service | authors | administrators | users)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"please login" "your password is *"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'mail filetype:csv -site:gov intext:name'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:xls inurl:"email.xls"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'ext:txt "Final encryption key"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:ctt Contact'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:sql ("values * MD5" | "values * password" | "values * encrypt")'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: '!Host=*.* intext:enc_UserPassword=* ext:pcf'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: '!Host=*.* intext:enc_UserPassword=* ext:pcf'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'ext:(doc | pdf | xls | txt | ps | rtf | odt | sxw | psw | ppt | pps | xml) (intext:confidential salary | intext:"budget approved") inurl:confidential'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"EXTRANET * - Identification"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"EXTRANET login"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"Employee Intranet Login"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'ext:php intext:"$dbms""$dbhost""$dbuser""$dbpasswd""$table_prefix""phpbb_installed"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:index.of passwd passwd.bak'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"Index of" ".htpasswd" htpasswd.bak'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"Index of" spwd.db passwd -pam.conf'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"Index of..etc" passwd'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype: log inurl:"access.log" +intext:"HTTP/1.1"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intext:"salario"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intext:"seguridad social"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:"nomina"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intext:db_pass inurl:settings.ini'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:cfg "radius" (pass|passwd|password)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:ini "pdo_mysql" (pass|passwd|password|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:ini "SavedPasswords" (pass|passwd|password|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:ini "precurio" (pass|passwd|password|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:ini "[FFFTP]" (pass|passwd|password|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:sql "PostgreSQL database dump" (pass|password|passwd|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:sql "MySQL dump" (pass|password|passwd|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:sql "phpmyAdmin SQL Dump" (pass|password|passwd|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:ini "Bootstrap.php" (pass|passwd|password|pwd)'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:"/root/etc/passwd" intext:"home/*:"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intext:"root:x:0:0:root:/root:/bin/bash" inurl:*=/etc/passwd'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:phpmyadmin/index.php & (intext:username & password & "Welcome to")'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'ext:sql intext:@gmail.com intext:password'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:index.of.accounts'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:private_files'
+        id_dork: 1
+    

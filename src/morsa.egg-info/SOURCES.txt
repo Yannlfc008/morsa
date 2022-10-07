@@ -4,6 +4,7 @@ src/morsa/__main__.py
 src/morsa/abstract_searcher.py
 src/morsa/bing_searcher.py
 src/morsa/excel_dominio.py
+src/morsa/exception_capado.py
 src/morsa/google_searcher.py
 src/morsa/hash.py
 src/morsa/logg.py
