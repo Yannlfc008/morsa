@@ -425,4 +425,78 @@ BING:
         descripcion: "para sacar pfds"
         dork: 'inurl:private_files'
         id_dork: 1
-    
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'ext:xls intext:NAME intext:TEL intext:EMAIL intext:PASSWORD'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:"wp-content/uploads/private"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: '-inurl:http | -inurl:https inurl:ftp ext:xls | ext:xlsx bank'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intext:"GET http://" ext:txt intext:"password" inurl:log'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:http | -inurl:https inurl:ftp ext:pdf taxreturn'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'filetype:pwd intitle:index'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:admin inurl:userlist'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'inurl:admin filetype:asp inurl:userlist'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: '"username.xlsx" ext:xlsx'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:index.of "users.db"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'allintext:username filetype:log'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"index of" "users.sql"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"index of" "password.yml'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"index of" "contacts.txt"'
+        id_dork: 1
+    - dorks:
+        riesgo: 5
+        descripcion: "para sacar pfds"
+        dork: 'intitle:"index of" "/usernames"'
+        id_dork: 1
