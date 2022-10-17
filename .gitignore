@@ -1,0 +1,9 @@
+.vscode
+*.xlsx
+*.log
+*.egg-info
+*.pyc
+*.txt
+*.pdf
+venv
+credentialsDB.yml
