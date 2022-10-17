@@ -1,8 +1,0 @@
-.vscode
-*.xlsx
-*.log
-*.pdf
-*.pyc
-venv
-*.txt
-*.egg_info
